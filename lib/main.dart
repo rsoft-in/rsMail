@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Email',
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       theme: theme(),
       darkTheme: themeDark(),
       home: const EmailApp(),
