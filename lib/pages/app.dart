@@ -2,7 +2,7 @@ import 'package:animations/animations.dart';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:rsMail/constants.dart';
 import 'package:rsMail/pages/home_page.dart';
-import 'package:rsMail/pages/settings.dart';
+import 'package:rsMail/pages/mail_accounts_page.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:universal_platform/universal_platform.dart';
@@ -19,7 +19,7 @@ class _EmailAppState extends State<EmailApp> {
   int _page = 0;
   final _pageList = [
     const HomePage(),
-    const SettingsPage(),
+    const MailAccountsPage(),
   ];
   _onDrawerItemSelect(int index) {
     setState(() => _page = index);
@@ -90,10 +90,10 @@ class _EmailAppState extends State<EmailApp> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {},
+      //   child: Icon(Icons.add),
+      // ),
     );
   }
 }

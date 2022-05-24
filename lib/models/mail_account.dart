@@ -20,4 +20,14 @@ class MailAccount {
         accountUser = json['acnt_user'],
         accountPass = json['acnt_pass'],
         accountEmail = json['acnt_email'];
+
+  Map<String, dynamic> toJson() => {
+        'acnt_id': accountId,
+        'acnt_name': accountName,
+        'acnt_host': accountHost,
+        'acnt_port': accountPort,
+        'acnt_user': accountUser,
+        'acnt_pass': accountPass,
+        'acnt_email': accountEmail
+      };
 }

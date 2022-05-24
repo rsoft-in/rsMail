@@ -44,4 +44,27 @@ class DatabaseHelper {
         .map<MailAccount>((json) => MailAccount.fromJson(json))
         .toList();
   }
+
+  Future<bool> insertMailAccount(MailAccount account) async {
+    Database? db = await instance.database;
+    await db!.insert('mail_accounts', account.toJson());
+    return true;
+  }
+
+  Future<bool> updateMailAccount(MailAccount account) async {
+    Database? db = await instance.database;
+    Map<String, dynamic> map = {
+      'acnt_id': account.accountId,
+      'acnt_name': account.accountName,
+      'acnt_host': account.accountHost,
+      'acnt_port': account.accountPort,
+      'acnt_user': account.accountUser,
+      'acnt_pass': account.accountPass,
+      'acnt_email': account.accountEmail
+    };
+    String _id = map['acnt_id'];
+    final rowsAffected =
+        await db!.update('mail_accounts', map, where: 'acnt_id = ?', whereArgs: [_id]);
+    return (rowsAffected == 1);
+  }
 }
